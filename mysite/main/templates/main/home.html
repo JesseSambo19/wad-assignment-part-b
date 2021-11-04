@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+  .to-do{
+		text-decoration: none;
+		transition: all .5s;;
+	}
+
+	.to-do:hover{
+		color: black;
+	}
+
+  .log{
+    display: inline-block;
+    padding-right: 20px;
+  }
+</style>
+<p class="log" onclick="
+none"><a class="to-do" href="/login">Login</a></p>
+<p class="log" id="logout" class=""><a href="/logout" class="to-do">Logout</a></p>
+<p>This is a to do list tracker, a user can create a todo list by first specifying the name and adding tasks that should be done on the to do list created.</p>
+
+
+{% endblock %}
