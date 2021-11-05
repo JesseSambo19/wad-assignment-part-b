@@ -22,7 +22,7 @@ View
 		<form action="{% url 'delete' td.id %}" method="POST">
 			{% csrf_token %}
 			<div class="mb-1">
-				<a href="/delete"><button class="btn btn-danger">Delete</button></a>
+				<button class="btn btn-danger">Delete</button>
 			</div>
 		</form>
 		
