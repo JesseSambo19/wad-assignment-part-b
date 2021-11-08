@@ -19,6 +19,8 @@ View
 
 	{% for td in user.todolist.all %}
 		<p><a class="to-do" href="/{{td.id}}">{{td.name}}</a></p>
+		<!-- <a class="btn btn-sm btn-light" href="{% url 'update_task' td.id %}">Update</a> -->
+		<!-- <a href="{% url 'update_task' td.id %}"><button class="btn btn-primary me-2">Update</button></a> -->
 		<form action="{% url 'delete' td.id %}" method="POST">
 			{% csrf_token %}
 			<div class="mb-1">

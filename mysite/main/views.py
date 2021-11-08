@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from . models import ToDoList, Item
 from . forms import CreateNewList
+# from . forms import UpdateForm
 
 # Create your views here.
 
@@ -64,3 +65,38 @@ def create(response):
 
 def view(response):
 	return render(response, "main/view.html", {})
+
+def updateTask(request, pk):
+	task = ToDoList.objects.get(id=pk)
+	form = UpdateForm(instance=task)
+
+	if response.method == "POST":
+			form = UpdateForm(response.POST, instance=task)
+
+	if form.is_valid():
+			n = form.cleaned_data["name"]
+			t = ToDoList(name=n)
+			t.save()
+			response.user.todolist.add(t)
+
+		
+	context = {"form":form}
+	return render(request, "main/create.html", context)
+
+	# def update(request, pk):
+
+	# 	task = ToDoList.objects.get(id=pk)
+	# 	form = CreateNewList(instance=task)
+
+	# 	if response.method == "POST":
+	# 		form = CreateNewList(response.POST, instance=task)
+
+	# 	if form.is_valid():
+	# 		n = form.cleaned_data["name"]
+	# 		t = ToDoList(name=n)
+	# 		t.save()
+	# 		response.user.todolist.add(t)
+
+		
+	# 	context = {"form":form}
+	# 	return render(request, "main/create.html", context)

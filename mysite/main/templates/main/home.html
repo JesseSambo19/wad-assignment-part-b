@@ -6,22 +6,47 @@
 <style>
   .to-do{
 		text-decoration: none;
-		transition: all .5s;;
+		transition: all .5s;
 	}
 
 	.to-do:hover{
 		color: black;
 	}
 
-  .log{
+	.log{
     display: inline-block;
     padding-right: 20px;
   }
+  .img{
+  	display: block;
+  	margin-right: auto;
+  	margin-left: auto;
+		width: 80%;
+		border-radius: 3px;
+  }
+  .box{
+  	border: 2px solid black;
+  	border-radius: 5px;
+  	padding: 20px;
+  }
 </style>
-<p class="log" onclick="
-none"><a class="to-do" href="/login">Login</a></p>
-<p class="log" id="logout" class=""><a href="/logout" class="to-do">Logout</a></p>
-<p>This is a to do list tracker, a user can create a todo list by first specifying the name and adding tasks that should be done on the to do list created.</p>
+<div style="float: right;">
+	<!-- <p class="log" onclick="
+none"><a href="/login">Login</a></p> -->
+
+<a href="/login"><button class="btn btn-success me-1">Login</button></a>
+<!-- <p class="log" id="logout" class=""><a href="/logout" class="to-do">Logout</a></p> -->
+<a href="/logout"><button class="btn btn-danger ms-1">Logout</button></a>
+</div>
+<br>
+<br>
+<div class="mt-2">
+	<img class="img" src="https://www.workflowmax.com/hubfs/6-things-to-do-list.png" alt="to-do list image">
+</div>
+<div class="mt-4 box">
+	<p>This is a to do list tracker, a user can create a to do list by first specifying the name and adding tasks that should be done on the to do list created.</p>
+</div>
+
 
 
 {% endblock %}
